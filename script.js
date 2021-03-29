@@ -1,25 +1,34 @@
-buildGrid(16);
+buildGrid(64);
+listen();
+
 function buildGrid(amount){
     let size = (800/amount);
     size = size -2; //accounts for border
     let sized = size + "px";
     let container = document.getElementById("gridContainer");
-    for(row = 0; row < amount; row++){
+    for(column = 0; column < amount; column++){
         let currentRow = document.createElement("div");
-        //currentRow.style.border = "1px solid red";
-        //currentRow.style.height = sized;
-        //currentRow.style.width = sized; 
-        //currentRow.innerHTML = row;
-        for(column = 0; column < amount; column++){
+        for(row = 0; row < amount; row++){
             let currentColumn = document.createElement("div");
-            currentColumn.style.border = "1px solid blue";
+            currentColumn.style.border = "1px solid black";
             currentColumn.style.width = sized;
             currentColumn.style.height = sized;
-            //currentColumn.style.width = "200px";
-            //currentColumn.style.height = "200px";
-            currentColumn.innerHTML = column;
+            currentColumn.id = 'cell';
             currentRow.appendChild(currentColumn);
         }
         container.appendChild(currentRow);
     }
+}
+
+function listen(){
+    const cells = document.querySelectorAll('[id=cell]');
+    
+    cells.forEach((cell) => {
+        
+            cell.addEventListener('mouseover', () =>
+            {
+                cell.style.backgroundColor = "black";  
+            });
+        });
+    
 }
