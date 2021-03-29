@@ -1,0 +1,12 @@
+#gridContainer {
+    border: 1px solid green;
+    display: flex;
+    width: 800px;
+    height: 800px;
+    justify-content: center;
+    margin: auto;
+}
+h1 {
+    display: flex;
+    justify-content: center;
+}
